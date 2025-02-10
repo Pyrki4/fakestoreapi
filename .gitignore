@@ -1,0 +1,44 @@
+# Директория сборки Gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Кэш Gradle
+.gradle/
+**/out/
+**/bin/
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.lock
+hs_err_pid*
+
+# Конфигурационные файлы IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# Файлы ОС
+.DS_Store
+Thumbs.db
+
+# Файлы зависимостей
+/lib/
+*.jar
+*.war
+*.ear
+
+# Переменные среды и учетные данные
+*.env
+*.key
+*.pem
+secrets.json
+
+# Файлы тестовых отчетов и покрытия кода
+/test-results/
+*.ec
+*.exec
+*.coverage
+*.lcov
