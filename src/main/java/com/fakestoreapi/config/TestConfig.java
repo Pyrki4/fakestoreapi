@@ -1,9 +1,7 @@
 package com.fakestoreapi.config;
 
-import org.aeonbits.owner.Config;
+import org.aeonbits.owner.ConfigFactory;
 
-public interface TestConfig extends Config {
-
-    @Key("base.url")
-    String baseUrl();
+public class TestConfig {
+    public static ConfigFromSources config = ConfigFactory.create(ConfigFromSources.class);
 }

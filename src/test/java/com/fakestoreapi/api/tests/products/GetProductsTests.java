@@ -1,22 +1,25 @@
 package com.fakestoreapi.api.tests.products;
 
-import com.fakestoreapi.config.TestConfig;
-import org.aeonbits.owner.ConfigFactory;
+import com.fakestoreapi.api.tests.base.BaseTest;
+import com.fakestoreapi.products.assertions.ProductAssertions;
+import com.fakestoreapi.products.dto.ProductDto;
+import com.fakestoreapi.steps.ProductsSteps;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
+import java.util.List;
 
-public class GetProductsTests {
+public class GetProductsTests extends BaseTest {
 
-    private final TestConfig config = ConfigFactory.create(TestConfig.class);
+    ProductsSteps client = new ProductsSteps();
 
     @Test
     void getAllProducts() {
-        given()
-                .basePath(config.baseUrl())
-                .when()
-                .get("/products")
-                .then()
-                .statusCode(200);
+        List<ProductDto> products = client.getAllProducts(200);
+        ProductAssertions.assertGetAllProducts(products);
+    }
+
+    @Test
+    void getSingleProduct() {
+        ProductDto product = client.getProduct(1,200);
     }
 }
