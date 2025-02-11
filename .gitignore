@@ -42,3 +42,6 @@ secrets.json
 *.exec
 *.coverage
 *.lcov
+
+# Allure результаты
+allure-results/
