@@ -25,6 +25,8 @@ dependencies {
 
     implementation("org.assertj:assertj-core:3.24.2") // assertj
 
+    implementation("org.apache.httpcomponents.core5:httpcore5:5.2")// http methods
+
     implementation("io.rest-assured:rest-assured:5.4.0") // rest-assured
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")

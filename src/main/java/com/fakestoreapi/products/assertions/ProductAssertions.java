@@ -1,5 +1,7 @@
 package com.fakestoreapi.products.assertions;
 
+import com.fakestoreapi.products.dto.CreateProductDto;
+import com.fakestoreapi.products.dto.NewProduct;
 import com.fakestoreapi.products.dto.ProductDto;
 
 import java.util.ArrayList;
@@ -70,5 +72,24 @@ public class ProductAssertions {
         assertThat(products)
                 .extracting(ProductDto::getCategory)
                 .containsOnly(category);
+    }
+
+    public static void assertNewProductFields(CreateProductDto expectedProduct, NewProduct actualProduct){
+        assertThat(actualProduct.getTitle()).isEqualTo(expectedProduct.getTitle());
+        assertThat(actualProduct.getDescription()).isEqualTo(expectedProduct.getDescription());
+        assertThat(actualProduct.getCategory()).isEqualTo(expectedProduct.getCategory());
+        assertThat(actualProduct.getPrice()).isEqualTo(expectedProduct.getPrice());
+        assertThat(actualProduct.getImage()).isEqualTo(expectedProduct.getImage());
+    }
+
+    public static void assertProductFields(ProductDto expectedProduct, ProductDto actualProduct) {
+        assertThat(actualProduct.getId()).isEqualTo(expectedProduct.getId());
+        assertThat(actualProduct.getTitle()).isEqualTo(expectedProduct.getTitle());
+        assertThat(actualProduct.getDescription()).isEqualTo(expectedProduct.getDescription());
+        assertThat(actualProduct.getCategory()).isEqualTo(expectedProduct.getCategory());
+        assertThat(actualProduct.getPrice()).isEqualTo(expectedProduct.getPrice());
+        assertThat(actualProduct.getImage()).isEqualTo(expectedProduct.getImage());
+        assertThat(actualProduct.getRating().getRate()).isEqualTo(expectedProduct.getRating().getRate());
+        assertThat(actualProduct.getRating().getCount()).isEqualTo(expectedProduct.getRating().getCount());
     }
 }
