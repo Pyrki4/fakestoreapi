@@ -1,11 +1,11 @@
-package com.fakestoreapi.api.tests.products;
+package com.fakestoreapi.tests.api.products;
 
-import com.fakestoreapi.api.tests.base.BaseTest;
+import com.fakestoreapi.tests.api.base.BaseTest;
 import com.fakestoreapi.products.assertions.ProductAssertions;
 import com.fakestoreapi.products.dto.CreateProductDto;
-import com.fakestoreapi.products.dto.NewProduct;
+import com.fakestoreapi.products.dto.NewProductDto;
 import com.fakestoreapi.products.dto.ProductDto;
-import com.fakestoreapi.steps.ProductsSteps;
+import com.fakestoreapi.products.steps.ProductsSteps;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -73,7 +73,7 @@ public class ProductsTests extends BaseTest {
     @DisplayName("shouldCreateNewProduct")
     void shouldCreateNewProduct() {
         CreateProductDto product = new CreateProductDto("title", 10.5, "category", "description", "image");
-        NewProduct createdProduct = client.createNewProduct(SC_OK, product);
+        NewProductDto createdProduct = client.createNewProduct(SC_OK, product);
         ProductAssertions.assertNewProductFields(product, createdProduct);
     }
 
@@ -82,7 +82,7 @@ public class ProductsTests extends BaseTest {
     void shouldUpdateProduct() {
         int productId = 7;
         CreateProductDto product = new CreateProductDto("title", 10.5, "category", "description", "image");
-        NewProduct updatedProduct = client.updateProduct(SC_OK, product, productId);
+        NewProductDto updatedProduct = client.updateProduct(SC_OK, product, productId);
         ProductAssertions.assertNewProductFields(product, updatedProduct);
     }
 

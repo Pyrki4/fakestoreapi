@@ -1,7 +1,7 @@
 package com.fakestoreapi.products.assertions;
 
 import com.fakestoreapi.products.dto.CreateProductDto;
-import com.fakestoreapi.products.dto.NewProduct;
+import com.fakestoreapi.products.dto.NewProductDto;
 import com.fakestoreapi.products.dto.ProductDto;
 
 import java.util.ArrayList;
@@ -74,7 +74,7 @@ public class ProductAssertions {
                 .containsOnly(category);
     }
 
-    public static void assertNewProductFields(CreateProductDto expectedProduct, NewProduct actualProduct){
+    public static void assertNewProductFields(CreateProductDto expectedProduct, NewProductDto actualProduct) {
         assertThat(actualProduct.getTitle()).isEqualTo(expectedProduct.getTitle());
         assertThat(actualProduct.getDescription()).isEqualTo(expectedProduct.getDescription());
         assertThat(actualProduct.getCategory()).isEqualTo(expectedProduct.getCategory());
