@@ -10,6 +10,14 @@ public class CartSteps {
     CartApi cartApi = new CartApi();
 
     public List<CartDto> getAllCarts(int statusCode) {
-        return cartApi.getAllCarts(statusCode).jsonPath().getList("", CartDto.class);
+        return cartApi.getAll(statusCode).jsonPath().getList("", CartDto.class);
+    }
+
+    public CartDto getCartById(int statusCode, int cartId) {
+        return cartApi.getById(statusCode, cartId).then().extract().as(CartDto.class);
+    }
+
+    public List<CartDto> getCartsWithLimit(int statusCode, int limit) {
+        return cartApi.getWithLimit(statusCode, limit).jsonPath().getList("", CartDto.class);
     }
 }

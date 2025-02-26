@@ -14,8 +14,6 @@ public class CartDto {
     private int userId;
     private String date;
     private Products[] products;
-
-    @JsonIgnore
     private String __v;
 
     @Data

@@ -7,7 +7,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CartAssertions {
-    public static void assertCartFieldsNotEmpty(List<CartDto> carts) {
+    public static void assertCartsFieldsNotEmpty(List<CartDto> carts) {
         assertThat(carts).isNotEmpty();
         for (CartDto cart : carts) {
             assertThat(cart.getId()).isNotEqualTo(0);
@@ -18,5 +18,14 @@ public class CartAssertions {
                 assertThat(product.getQuantity()).isNotEqualTo(0);
             }
         }
+    }
+
+    public static void assertCartFields(CartDto expectedCart, CartDto actualCart) {
+        assertThat(actualCart).isNotNull();
+        assertThat(actualCart).isEqualTo(expectedCart);
+    }
+
+    public static void assertCartsWithLimit(List<CartDto> carts, int limit) {
+        assertThat(carts.size()).isEqualTo(limit);
     }
 }
